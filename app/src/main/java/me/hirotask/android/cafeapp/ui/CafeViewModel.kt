@@ -7,10 +7,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import me.hirotask.android.cafeapp.domain.Cafe
 import me.hirotask.android.cafeapp.repository.CafeRepository
+import me.hirotask.android.cafeapp.repository.CafeRepositoryImpl
 
-class CafeViewModel(private val cafeRepository: CafeRepository) : ViewModel() {
+class CafeViewModel() : ViewModel() {
 
-    private val _cafeList: MutableStateFlow<List<Cafe>> = MutableStateFlow(listOf())
+    private val _cafeList = MutableStateFlow<List<Cafe>>(listOf())
 
     val cafeList = _cafeList.asStateFlow()
 
@@ -19,6 +20,8 @@ class CafeViewModel(private val cafeRepository: CafeRepository) : ViewModel() {
     }
 
     fun getCafeList() {
+        val cafeRepository: CafeRepository = CafeRepositoryImpl()
+
         viewModelScope.launch {
             cafeRepository.getCafeList(
                 20,

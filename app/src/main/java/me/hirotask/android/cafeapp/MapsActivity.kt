@@ -2,6 +2,7 @@ package me.hirotask.android.cafeapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -11,6 +12,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import me.hirotask.android.cafeapp.databinding.ActivityMapsBinding
+import me.hirotask.android.cafeapp.domain.Cafe
+import me.hirotask.android.cafeapp.ui.CafeViewModel
 import me.hirotask.android.cafeapp.ui.MapsFragment
 
 class MapsActivity : AppCompatActivity() {
